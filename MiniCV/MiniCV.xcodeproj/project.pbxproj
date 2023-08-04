@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E405BC452A7D5FCF00C314F3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC442A7D5FCF00C314F3 /* MainViewModel.swift */; };
+		E405BC472A7D601F00C314F3 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC462A7D601F00C314F3 /* SkillCell.swift */; };
+		E405BC492A7D606B00C314F3 /* SkillCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */; };
+		E405BC4B2A7D632A00C314F3 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */; };
 		E4EB2E0E2A7CEBEB008D1665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E0D2A7CEBEB008D1665 /* AppDelegate.swift */; };
 		E4EB2E102A7CEBEB008D1665 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E0F2A7CEBEB008D1665 /* SceneDelegate.swift */; };
 		E4EB2E122A7CEBEB008D1665 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E112A7CEBEB008D1665 /* MainViewController.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E405BC442A7D5FCF00C314F3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E405BC462A7D601F00C314F3 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
+		E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCellViewModel.swift; sourceTree = "<group>"; };
+		E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		E4EB2E0A2A7CEBEB008D1665 /* MiniCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4EB2E0D2A7CEBEB008D1665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4EB2E0F2A7CEBEB008D1665 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +70,6 @@
 			children = (
 				E4EB2E242A7CEC61008D1665 /* App */,
 				E4EB2E252A7CEC6C008D1665 /* Main */,
-				E4EB2E292A7CECA8008D1665 /* Cells */,
 				E4EB2E282A7CEC96008D1665 /* Models */,
 				E4EB2E2A2A7CECB8008D1665 /* Services */,
 				E4EB2E262A7CEC7B008D1665 /* Storyboards */,
@@ -85,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				E4EB2E112A7CEBEB008D1665 /* MainViewController.swift */,
+				E405BC442A7D5FCF00C314F3 /* MainViewModel.swift */,
+				E4EB2E292A7CECA8008D1665 /* Cells */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -117,6 +126,9 @@
 		E4EB2E292A7CECA8008D1665 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E405BC462A7D601F00C314F3 /* SkillCell.swift */,
+				E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */,
+				E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,8 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E405BC452A7D5FCF00C314F3 /* MainViewModel.swift in Sources */,
+				E405BC492A7D606B00C314F3 /* SkillCellViewModel.swift in Sources */,
+				E405BC472A7D601F00C314F3 /* SkillCell.swift in Sources */,
 				E4EB2E122A7CEBEB008D1665 /* MainViewController.swift in Sources */,
 				E4EB2E2E2A7CF8C1008D1665 /* Profile.swift in Sources */,
+				E405BC4B2A7D632A00C314F3 /* AddButtonCell.swift in Sources */,
 				E4EB2E182A7CEBEB008D1665 /* MiniCV.xcdatamodeld in Sources */,
 				E4EB2E2C2A7CF512008D1665 /* StorageManager.swift in Sources */,
 				E4EB2E0E2A7CEBEB008D1665 /* AppDelegate.swift in Sources */,

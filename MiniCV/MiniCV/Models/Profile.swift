@@ -6,6 +6,7 @@
 //
 
 struct Profile {
+    let title: String
     let photo: String
     let fullName: String
     let info: String
@@ -14,6 +15,7 @@ struct Profile {
     
     static func getProfile() -> Profile {
         Profile(
+            title: "Профиль",
             photo: "Photo",
             fullName: "Шигапов Руслан Ильгамович",
             info: "Junior iOS-разработчик, опыт более 1-го года",
