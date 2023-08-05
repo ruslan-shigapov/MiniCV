@@ -11,11 +11,7 @@ protocol SkillCellDelegate {
     var deleteButtonWasPressed: (() -> Void)? { get set }
 }
 
-protocol AddButtonCellDelegate {
-    var addButtonWasPressed: (() -> Void)? { get set }
-}
-
-protocol MainViewModelProtocol: SkillCellDelegate, AddButtonCellDelegate {
+protocol MainViewModelProtocol: SkillCellDelegate {
     var isEditingMode: Bool { get set }
     func fetchData(completion: () -> Void)
     func numberOfItems() -> Int
@@ -26,7 +22,6 @@ protocol MainViewModelProtocol: SkillCellDelegate, AddButtonCellDelegate {
 final class MainViewModel: MainViewModelProtocol {
     
     var deleteButtonWasPressed: (() -> Void)?
-    var addButtonWasPressed: (() -> Void)?
     
     var isEditingMode = false
     

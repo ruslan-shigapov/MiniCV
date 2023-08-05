@@ -30,9 +30,12 @@ final class SkillCell: UICollectionViewCell {
         return button
     }()
     
+    lazy var skillNameLabelTrailingConstraint: NSLayoutConstraint = {
+        let constraint = skillNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        return constraint
+    }()
+    
     var delegate: SkillCellDelegate!
-//    TODO: доделать динамический размер
-//    var skillNameLabelTrailingConstraint: NSLayoutConstraint!
     
     var viewModel: SkillCellViewModelProtocol! {
         didSet {
@@ -59,8 +62,8 @@ final class SkillCell: UICollectionViewCell {
         addSubview(skillStackView)
         skillStackView.addArrangedSubview(skillNameLabel)
         skillStackView.addArrangedSubview(deleteButton)
-        setConstraints()
         setDeleteAction()
+        setConstraints()
     }
     
     private func setDeleteAction() {
@@ -76,13 +79,10 @@ final class SkillCell: UICollectionViewCell {
             skillNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             skillNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
             skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            skillNameLabel.trailingAnchor.constraint(
-                equalTo: trailingAnchor,
-                constant: -24
-            ),
+            skillNameLabelTrailingConstraint,
             
             deleteButton.widthAnchor.constraint(equalToConstant: 14),
-            deleteButton.heightAnchor.constraint(equalToConstant: 14)
+            deleteButton.heightAnchor.constraint(equalToConstant: 14),
         ])
     }
 }

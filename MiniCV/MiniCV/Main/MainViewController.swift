@@ -22,9 +22,6 @@ final class MainViewController: UIViewController {
                     self?.skillsCollectionView.reloadData()
                 }
             }
-            viewModel.addButtonWasPressed = { [weak self] in
-                self?.showAddAlert()
-            }
         }
     }
     
@@ -132,6 +129,17 @@ final class MainViewController: UIViewController {
         return label
     }()
     
+    private lazy var aboutLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = profile.about
+        label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    var contentSizeHeight: CGFloat!
+    
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +158,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         skillsCollectionView.dataSource = self
+        skillsCollectionView.delegate = self
         skillsCollectionView.register(
             SkillCell.self,
             forCellWithReuseIdentifier: "skillCell"
@@ -170,6 +179,7 @@ final class MainViewController: UIViewController {
                 UIImage(named: viewModel.isEditingMode ? "Done" : "Pencil"),
                 for: .normal
             )
+            skillsCollectionView.reloadData()
         }
         editButton.addAction(editButtonPressed, for: .touchUpInside)
     }
@@ -189,13 +199,12 @@ final class MainViewController: UIViewController {
         skillsStackView.addArrangedSubview(editButton)
         lowerView.addSubview(skillsCollectionView)
         lowerView.addSubview(aboutSectionLabel)
+        lowerView.addSubview(aboutLabel)
     }
         
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor
-            ),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -211,8 +220,6 @@ final class MainViewController: UIViewController {
             lowerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             lowerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             lowerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            // TODO: решить с высотой нижнего вью
-            lowerView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
 
             imageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 24),
             imageView.widthAnchor.constraint(equalToConstant: 120),
@@ -242,12 +249,16 @@ final class MainViewController: UIViewController {
             skillsCollectionView.topAnchor.constraint(equalTo: skillsStackView.bottomAnchor),
             skillsCollectionView.leadingAnchor.constraint(equalTo: lowerView.leadingAnchor, constant: 16),
             skillsCollectionView.trailingAnchor.constraint(equalTo: lowerView.trailingAnchor, constant: -16),
-            // TODO: временная величина
             skillsCollectionView.heightAnchor.constraint(equalToConstant: 100),
 
             aboutSectionLabel.topAnchor.constraint(equalTo: skillsCollectionView.bottomAnchor, constant: 24),
             aboutSectionLabel.leadingAnchor.constraint(equalTo: lowerView.leadingAnchor, constant: 16),
             aboutSectionLabel.trailingAnchor.constraint(equalTo: lowerView.trailingAnchor, constant: -16),
+            
+            aboutLabel.topAnchor.constraint(equalTo: aboutSectionLabel.bottomAnchor, constant: 8),
+            aboutLabel.bottomAnchor.constraint(equalTo: lowerView.bottomAnchor, constant: -24),
+            aboutLabel.leadingAnchor.constraint(equalTo: lowerView.leadingAnchor, constant: 16),
+            aboutLabel.trailingAnchor.constraint(equalTo: lowerView.trailingAnchor, constant: -16)
         ])
     }
 }
@@ -270,10 +281,10 @@ extension MainViewController: UICollectionViewDataSource {
                                                                for: indexPath) as? SkillCell
             if viewModel.isEditingMode {
                 skillCell?.deleteButton.isHidden = false
-//                skillCell?.skillNameLabelTrailingConstraint.constant = -37
+                skillCell?.skillNameLabelTrailingConstraint.constant = -48
             } else {
                 skillCell?.deleteButton.isHidden = true
-//                skillCell?.skillNameLabelTrailingConstraint.constant = -24
+                skillCell?.skillNameLabelTrailingConstraint.constant = -24
             }
             skillCell?.viewModel = viewModel.getSkillCellViewModel(at: indexPath)
             skillCell?.delegate = viewModel as SkillCellDelegate
@@ -281,10 +292,23 @@ extension MainViewController: UICollectionViewDataSource {
         } else {
             let addButtonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addButtonCell",
                                                                    for: indexPath) as? AddButtonCell
-            addButtonCell?.delegate = viewModel as AddButtonCellDelegate
             cell = addButtonCell
         }
+        // TODO: ДИНАМИЧЕСКАЯ ВЫСОТА
+        contentSizeHeight = skillsCollectionView.collectionViewLayout.collectionViewContentSize.height
         return cell ?? UICollectionViewCell()
+    }
+}
+
+// MARK: - Collection View Delegate
+extension MainViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        if viewModel.isEditingMode, viewModel.numberOfItems() == indexPath.item + 1 {
+            showAddAlert()
+        }
     }
 }
 
