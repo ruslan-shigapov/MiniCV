@@ -12,7 +12,6 @@ final class SkillCell: UICollectionViewCell {
     private lazy var skillStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.alignment = .center
         return stackView
@@ -62,16 +61,8 @@ final class SkillCell: UICollectionViewCell {
         addSubview(skillStackView)
         skillStackView.addArrangedSubview(skillNameLabel)
         skillStackView.addArrangedSubview(deleteButton)
-        setDeleteAction()
         setConstraints()
-    }
-    
-    private func setDeleteAction() {
-        let deleteButtonPressed = UIAction { [weak self] _ in
-            self?.viewModel.deleteSkill()
-            self?.delegate.deleteButtonWasPressed?()
-        }
-        deleteButton.addAction(deleteButtonPressed, for: .touchUpInside)
+        setDeleteAction()
     }
     
     private func setConstraints() {
@@ -84,5 +75,13 @@ final class SkillCell: UICollectionViewCell {
             deleteButton.widthAnchor.constraint(equalToConstant: 14),
             deleteButton.heightAnchor.constraint(equalToConstant: 14),
         ])
+    }
+    
+    private func setDeleteAction() {
+        let deleteButtonPressed = UIAction { [weak self] _ in
+            self?.viewModel.deleteSkill()
+            self?.delegate.deleteButtonWasPressed?()
+        }
+        deleteButton.addAction(deleteButtonPressed, for: .touchUpInside)
     }
 }

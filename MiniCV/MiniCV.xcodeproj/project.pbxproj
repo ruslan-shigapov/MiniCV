@@ -11,9 +11,13 @@
 		E405BC472A7D601F00C314F3 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC462A7D601F00C314F3 /* SkillCell.swift */; };
 		E405BC492A7D606B00C314F3 /* SkillCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */; };
 		E405BC4B2A7D632A00C314F3 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */; };
+		E42AF3672A81140D000B44E3 /* SkillsSectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AF3662A81140D000B44E3 /* SkillsSectionCellViewModel.swift */; };
+		E42AF3692A8130DA000B44E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AF3682A8130DA000B44E3 /* MainViewController.swift */; };
+		E42AF36B2A8132EF000B44E3 /* ProfileSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AF36A2A8132EF000B44E3 /* ProfileSectionCell.swift */; };
+		E4A85AF82A7FD30A001A0E74 /* SkillsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A85AF72A7FD30A001A0E74 /* SkillsSectionCell.swift */; };
+		E4A85AFA2A7FD335001A0E74 /* AboutSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A85AF92A7FD335001A0E74 /* AboutSectionCell.swift */; };
 		E4EB2E0E2A7CEBEB008D1665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E0D2A7CEBEB008D1665 /* AppDelegate.swift */; };
 		E4EB2E102A7CEBEB008D1665 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E0F2A7CEBEB008D1665 /* SceneDelegate.swift */; };
-		E4EB2E122A7CEBEB008D1665 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E112A7CEBEB008D1665 /* MainViewController.swift */; };
 		E4EB2E182A7CEBEB008D1665 /* MiniCV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E162A7CEBEB008D1665 /* MiniCV.xcdatamodeld */; };
 		E4EB2E1A2A7CEBED008D1665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4EB2E192A7CEBED008D1665 /* Assets.xcassets */; };
 		E4EB2E1D2A7CEBED008D1665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4EB2E1B2A7CEBED008D1665 /* LaunchScreen.storyboard */; };
@@ -26,10 +30,14 @@
 		E405BC462A7D601F00C314F3 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCellViewModel.swift; sourceTree = "<group>"; };
 		E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		E42AF3662A81140D000B44E3 /* SkillsSectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsSectionCellViewModel.swift; sourceTree = "<group>"; };
+		E42AF3682A8130DA000B44E3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E42AF36A2A8132EF000B44E3 /* ProfileSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSectionCell.swift; sourceTree = "<group>"; };
+		E4A85AF72A7FD30A001A0E74 /* SkillsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsSectionCell.swift; sourceTree = "<group>"; };
+		E4A85AF92A7FD335001A0E74 /* AboutSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSectionCell.swift; sourceTree = "<group>"; };
 		E4EB2E0A2A7CEBEB008D1665 /* MiniCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4EB2E0D2A7CEBEB008D1665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4EB2E0F2A7CEBEB008D1665 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4EB2E112A7CEBEB008D1665 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E4EB2E172A7CEBEB008D1665 /* MiniCV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiniCV.xcdatamodel; sourceTree = "<group>"; };
 		E4EB2E192A7CEBED008D1665 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4EB2E1C2A7CEBED008D1665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +57,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4A85AFB2A7FD34C001A0E74 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E42AF36A2A8132EF000B44E3 /* ProfileSectionCell.swift */,
+				E4A85AF72A7FD30A001A0E74 /* SkillsSectionCell.swift */,
+				E42AF3662A81140D000B44E3 /* SkillsSectionCellViewModel.swift */,
+				E4A85AF92A7FD335001A0E74 /* AboutSectionCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		E4A85AFC2A7FD361001A0E74 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E405BC462A7D601F00C314F3 /* SkillCell.swift */,
+				E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */,
+				E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		E4EB2E012A7CEBEB008D1665 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +99,7 @@
 			children = (
 				E4EB2E242A7CEC61008D1665 /* App */,
 				E4EB2E252A7CEC6C008D1665 /* Main */,
+				E4EB2E292A7CECA8008D1665 /* Cells */,
 				E4EB2E282A7CEC96008D1665 /* Models */,
 				E4EB2E2A2A7CECB8008D1665 /* Services */,
 				E4EB2E262A7CEC7B008D1665 /* Storyboards */,
@@ -91,9 +121,8 @@
 		E4EB2E252A7CEC6C008D1665 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E4EB2E112A7CEBEB008D1665 /* MainViewController.swift */,
+				E42AF3682A8130DA000B44E3 /* MainViewController.swift */,
 				E405BC442A7D5FCF00C314F3 /* MainViewModel.swift */,
-				E4EB2E292A7CECA8008D1665 /* Cells */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -126,9 +155,8 @@
 		E4EB2E292A7CECA8008D1665 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				E405BC462A7D601F00C314F3 /* SkillCell.swift */,
-				E405BC482A7D606B00C314F3 /* SkillCellViewModel.swift */,
-				E405BC4A2A7D632A00C314F3 /* AddButtonCell.swift */,
+				E4A85AFB2A7FD34C001A0E74 /* TableViewCells */,
+				E4A85AFC2A7FD361001A0E74 /* CollectionViewCells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -212,15 +240,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E405BC452A7D5FCF00C314F3 /* MainViewModel.swift in Sources */,
+				E42AF3692A8130DA000B44E3 /* MainViewController.swift in Sources */,
 				E405BC492A7D606B00C314F3 /* SkillCellViewModel.swift in Sources */,
 				E405BC472A7D601F00C314F3 /* SkillCell.swift in Sources */,
-				E4EB2E122A7CEBEB008D1665 /* MainViewController.swift in Sources */,
+				E42AF3672A81140D000B44E3 /* SkillsSectionCellViewModel.swift in Sources */,
 				E4EB2E2E2A7CF8C1008D1665 /* Profile.swift in Sources */,
+				E4A85AFA2A7FD335001A0E74 /* AboutSectionCell.swift in Sources */,
+				E4A85AF82A7FD30A001A0E74 /* SkillsSectionCell.swift in Sources */,
 				E405BC4B2A7D632A00C314F3 /* AddButtonCell.swift in Sources */,
 				E4EB2E182A7CEBEB008D1665 /* MiniCV.xcdatamodeld in Sources */,
 				E4EB2E2C2A7CF512008D1665 /* StorageManager.swift in Sources */,
 				E4EB2E0E2A7CEBEB008D1665 /* AppDelegate.swift in Sources */,
 				E4EB2E102A7CEBEB008D1665 /* SceneDelegate.swift in Sources */,
+				E42AF36B2A8132EF000B44E3 /* ProfileSectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
