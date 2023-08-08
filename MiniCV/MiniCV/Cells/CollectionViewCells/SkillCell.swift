@@ -9,6 +9,7 @@ import UIKit
 
 final class SkillCell: UICollectionViewCell {
     
+    // MARK: - Private Properties
     private lazy var skillStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +35,7 @@ final class SkillCell: UICollectionViewCell {
         return constraint
     }()
     
+    // MARK: - Public Properties
     var delegate: SkillCellDelegate!
     
     var viewModel: SkillCellViewModelProtocol! {
@@ -42,26 +44,29 @@ final class SkillCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = 12
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - UICollectionViewCell Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 12
+    }
  
+    // MARK: - Private Methods
     private func setupUI() {
         backgroundColor = .secondarySystemBackground
         addSubview(skillStackView)
         skillStackView.addArrangedSubview(skillNameLabel)
         skillStackView.addArrangedSubview(deleteButton)
-        setConstraints()
         setDeleteAction()
     }
     

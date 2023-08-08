@@ -20,6 +20,7 @@ final class AddButtonCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        setConstraints()
     }
     
     override func layoutSubviews() {
@@ -34,7 +35,6 @@ final class AddButtonCell: UICollectionViewCell {
     private func setupUI() {
         backgroundColor = .secondarySystemBackground
         addSubview(addButtonLabel)
-        setConstraints()
     }
     
     private func setConstraints() {

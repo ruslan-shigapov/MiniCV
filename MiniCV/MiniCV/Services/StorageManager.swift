@@ -11,7 +11,7 @@ final class StorageManager {
     
     static let shared = StorageManager()
 
-    // MARK: - Core Data stack
+    // MARK: - Core Data Stack
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "MiniCV")
         container.loadPersistentStores { (storeDescription, error) in

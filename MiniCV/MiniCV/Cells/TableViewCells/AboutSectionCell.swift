@@ -27,13 +27,17 @@ final class AboutSectionCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(aboutSectionLabel)
-        addSubview(aboutLabel)
+        setupUI()
         setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupUI() {
+        addSubview(aboutSectionLabel)
+        addSubview(aboutLabel)
     }
     
     private func setConstraints() {

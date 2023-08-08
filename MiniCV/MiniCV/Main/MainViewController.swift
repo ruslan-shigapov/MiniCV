@@ -10,17 +10,26 @@ import UIKit
 final class MainViewController: UITableViewController {
     
     // MARK: - Private Properties
-    private var viewModel: MainViewModelProtocol!
+    private var viewModel: MainViewModelProtocol! {
+        didSet {
+            viewModel.addButtonWasPressed = { [weak self] in
+                self?.showAddAlert {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+    }
     
     private let profile = Profile.getProfile()
     
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MainViewModel()
         setupUI()
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.numberOfSection()
     }
@@ -46,6 +55,7 @@ final class MainViewController: UITableViewController {
             cell = profileSectionCell
         case .skills:
             let skillsSectionCell = cell as? SkillsSectionCell
+            skillsSectionCell?.delegate = viewModel as SkillsSectionCellDelegate
             //
             cell = skillsSectionCell
         case .about:
@@ -80,27 +90,25 @@ final class MainViewController: UITableViewController {
 // MARK: - Alert Controller
 extension MainViewController {
 
-    private func showAddAlert() {
+    private func showAddAlert(completion: @escaping () -> Void) {
         let alert = UIAlertController(
             title: "Добавление навыка",
             message: "Введите название навыка, которым вы владеете",
             preferredStyle: .alert
         )
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
-//        let doneAction = UIAlertAction(
-//            title: "Добавить",
-//            style: .default
-//        ) { [weak self] _ in
-//            guard let name = alert.textFields?.first?.text else { return }
-//            guard !name.isEmpty else { return }
-//            self?.viewModel.createSkill(by: name) {
-//                self?.viewModel.fetchData {
-//                    self?.collectionView.reloadData()
-//                }
-//            }
-//        }
+        let doneAction = UIAlertAction(
+            title: "Добавить",
+            style: .default
+        ) { [weak self] _ in
+            guard let name = alert.textFields?.first?.text else { return }
+            guard !name.isEmpty else { return }
+            self?.viewModel.createSkill(by: name) {
+                completion()
+            }
+        }
         alert.addAction(cancelAction)
-//        alert.addAction(doneAction)
+        alert.addAction(doneAction)
         alert.addTextField { textField in
             textField.placeholder = "Введите название"
         }

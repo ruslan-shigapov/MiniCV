@@ -10,11 +10,8 @@ import UIKit
 final class SkillsSectionCell: UITableViewCell {
     
     // MARK: - Private Properties
-    private var viewModel: SkillsSectionCellViewModelProtocol! {
+    var viewModel: SkillsSectionCellViewModelProtocol! {
         didSet {
-            viewModel.fetchData {
-                collectionView.reloadData()
-            }
             viewModel.deleteButtonWasPressed = { [weak self] in
                 self?.viewModel.fetchData {
                     self?.collectionView.reloadData()
@@ -35,6 +32,11 @@ final class SkillsSectionCell: UITableViewCell {
     private lazy var editButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Pencil"), for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(editButtonPressed),
+            for: .touchUpInside
+        )
         return button
     }()
     
@@ -48,10 +50,15 @@ final class SkillsSectionCell: UITableViewCell {
         return collectionView
     }()
     
-    //    private lazy var skillsCollectionViewHeightConstraint: NSLayoutConstraint = {
-    //        let constraint = skillsCollectionView.heightAnchor.constraint(equalToConstant: 56)
-    //        return constraint
-    //    }()
+    private lazy var collectionViewHeightConstraint: NSLayoutConstraint = {
+        let constraint = collectionView.heightAnchor.constraint(equalToConstant: 56)
+        return constraint
+    }()
+    
+//    private var collectionViewHeight: CGFloat!
+    
+    // MARK: - Public Properties 
+    var delegate: SkillsSectionCellDelegate!
     
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -65,6 +72,12 @@ final class SkillsSectionCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // M
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        collectionViewHeight = collectionView.collectionViewLayout.collectionViewContentSize.height
+//    }
     
     // MARK: - Private Methods
     private func setupCollectionView() {
@@ -82,11 +95,11 @@ final class SkillsSectionCell: UITableViewCell {
     
     private func setupUI() {
         skillsSectionStackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(skillsSectionStackView)
+        contentView.addSubview(skillsSectionStackView)
+        contentView.addSubview(collectionView)
         skillsSectionStackView.addArrangedSubview(skillsSectionLabel)
         skillsSectionStackView.addArrangedSubview(editButton)
-        addSubview(collectionView)
-
+        viewModel.fetchData { collectionView.reloadData() }
     }
     
     //    private func setCollectionViewHeight() {
@@ -97,34 +110,32 @@ final class SkillsSectionCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            skillsSectionStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            skillsSectionStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            skillsSectionStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            skillsSectionStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            skillsSectionStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            skillsSectionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             skillsSectionStackView.heightAnchor.constraint(equalToConstant: 24),
             
             editButton.widthAnchor.constraint(equalToConstant: 24),
 
-            collectionView.topAnchor.constraint(equalTo: skillsSectionStackView.bottomAnchor, constant: 16),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: skillsSectionStackView.bottomAnchor, constant: 4),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            collectionViewHeightConstraint,
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
-    //    private func setEditButtonAction() {
-    //        let editButtonPressed = UIAction { [unowned self] _ in
-    //            viewModel.isEditingMode.toggle()
-    //            editButton.setImage(
-    //                UIImage(named: viewModel.isEditingMode ? "Done" : "Pencil"),
-    //                for: .normal
-    //            )
-    //            skillsCollectionView.reloadData()
-    //        }
-    //        editButton.addAction(editButtonPressed, for: .touchUpInside)
-    //    }
+    @objc private func editButtonPressed() {
+        viewModel.isEditingMode.toggle()
+        editButton.setImage(
+            UIImage(named: viewModel.isEditingMode ? "Done" : "Pencil"),
+            for: .normal
+        )
+        collectionView.reloadData()
+    }
 }
 
-// MARK: - Collection view data source
+// MARK: - Collection View Data Source
 extension SkillsSectionCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
@@ -160,18 +171,18 @@ extension SkillsSectionCell: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Collection view delegate
+// MARK: - Collection View Delegate
 extension SkillsSectionCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
         if viewModel.isEditingMode, viewModel.numberOfItems() == indexPath.item + 1 {
-//            showAddAlert()
+            delegate.addButtonWasPressed?()
         }
     }
 }
 
-// MARK: - Collection view compositional layout
+// MARK: - Collection View Compositional Layout
 extension SkillsSectionCell {
     
     private func makeLayout() -> UICollectionViewLayout {

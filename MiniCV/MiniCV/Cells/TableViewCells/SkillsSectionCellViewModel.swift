@@ -16,7 +16,6 @@ protocol SkillsSectionCellViewModelProtocol: SkillCellDelegate {
     func fetchData(completion: () -> Void)
     func numberOfItems() -> Int
     func getSkillCellViewModel(at indexPath: IndexPath) -> SkillCellViewModelProtocol
-    func createSkill(by name: String, completion: () -> Void)
 }
 
 class SkillsSectionCellViewModel: SkillsSectionCellViewModelProtocol {
@@ -46,10 +45,5 @@ class SkillsSectionCellViewModel: SkillsSectionCellViewModelProtocol {
     
     func getSkillCellViewModel(at indexPath: IndexPath) -> SkillCellViewModelProtocol {
         SkillCellViewModel(skill: skills[indexPath.row])
-    }
-    
-    func createSkill(by name: String, completion: () -> Void) {
-        StorageManager.shared.create(by: name)
-        completion()
     }
 }
