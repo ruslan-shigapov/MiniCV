@@ -13,19 +13,28 @@ enum Section: String, CaseIterable {
     case about
 }
 
+protocol ProfileSectionCellDelegate {
+    var editButtonWasPressed: (() -> Void)? { get set }
+}
+
 protocol SkillsSectionCellDelegate {
     var addButtonWasPressed: (() -> Void)? { get set }
 }
 
-protocol MainViewModelProtocol: SkillsSectionCellDelegate {
+protocol MainViewModelProtocol: ProfileSectionCellDelegate, SkillsSectionCellDelegate {
+    var isEditingMode: Bool { get set }
     func numberOfSection() -> Int
     func numberOfRows() -> Int
     func createSkill(by name: String, completion: () -> Void)
 }
 
 final class MainViewModel: MainViewModelProtocol {
+        
+    var editButtonWasPressed: (() -> Void)? 
     
     var addButtonWasPressed: (() -> Void)?
+        
+    var isEditingMode = false
     
     func numberOfSection() -> Int {
         Section.allCases.count

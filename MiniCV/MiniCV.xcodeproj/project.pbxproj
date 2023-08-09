@@ -14,8 +14,10 @@
 		E42AF3672A81140D000B44E3 /* SkillsSectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AF3662A81140D000B44E3 /* SkillsSectionCellViewModel.swift */; };
 		E42AF3692A8130DA000B44E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AF3682A8130DA000B44E3 /* MainViewController.swift */; };
 		E42AF36B2A8132EF000B44E3 /* ProfileSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AF36A2A8132EF000B44E3 /* ProfileSectionCell.swift */; };
+		E4A0990C2A8380A9009C05A3 /* ProfileSectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0990B2A8380A8009C05A3 /* ProfileSectionCellViewModel.swift */; };
 		E4A85AF82A7FD30A001A0E74 /* SkillsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A85AF72A7FD30A001A0E74 /* SkillsSectionCell.swift */; };
 		E4A85AFA2A7FD335001A0E74 /* AboutSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A85AF92A7FD335001A0E74 /* AboutSectionCell.swift */; };
+		E4BF2A9B2A82E0D900630EC1 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF2A9A2A82E0D900630EC1 /* DynamicHeightCollectionView.swift */; };
 		E4EB2E0E2A7CEBEB008D1665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E0D2A7CEBEB008D1665 /* AppDelegate.swift */; };
 		E4EB2E102A7CEBEB008D1665 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E0F2A7CEBEB008D1665 /* SceneDelegate.swift */; };
 		E4EB2E182A7CEBEB008D1665 /* MiniCV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2E162A7CEBEB008D1665 /* MiniCV.xcdatamodeld */; };
@@ -33,8 +35,10 @@
 		E42AF3662A81140D000B44E3 /* SkillsSectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsSectionCellViewModel.swift; sourceTree = "<group>"; };
 		E42AF3682A8130DA000B44E3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E42AF36A2A8132EF000B44E3 /* ProfileSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSectionCell.swift; sourceTree = "<group>"; };
+		E4A0990B2A8380A8009C05A3 /* ProfileSectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSectionCellViewModel.swift; sourceTree = "<group>"; };
 		E4A85AF72A7FD30A001A0E74 /* SkillsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsSectionCell.swift; sourceTree = "<group>"; };
 		E4A85AF92A7FD335001A0E74 /* AboutSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSectionCell.swift; sourceTree = "<group>"; };
+		E4BF2A9A2A82E0D900630EC1 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		E4EB2E0A2A7CEBEB008D1665 /* MiniCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4EB2E0D2A7CEBEB008D1665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4EB2E0F2A7CEBEB008D1665 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				E42AF36A2A8132EF000B44E3 /* ProfileSectionCell.swift */,
+				E4A0990B2A8380A8009C05A3 /* ProfileSectionCellViewModel.swift */,
 				E4A85AF72A7FD30A001A0E74 /* SkillsSectionCell.swift */,
 				E42AF3662A81140D000B44E3 /* SkillsSectionCellViewModel.swift */,
 				E4A85AF92A7FD335001A0E74 /* AboutSectionCell.swift */,
@@ -99,7 +104,7 @@
 			children = (
 				E4EB2E242A7CEC61008D1665 /* App */,
 				E4EB2E252A7CEC6C008D1665 /* Main */,
-				E4EB2E292A7CECA8008D1665 /* Cells */,
+				E4EB2E292A7CECA8008D1665 /* Views */,
 				E4EB2E282A7CEC96008D1665 /* Models */,
 				E4EB2E2A2A7CECB8008D1665 /* Services */,
 				E4EB2E262A7CEC7B008D1665 /* Storyboards */,
@@ -152,13 +157,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E4EB2E292A7CECA8008D1665 /* Cells */ = {
+		E4EB2E292A7CECA8008D1665 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				E4A85AFB2A7FD34C001A0E74 /* TableViewCells */,
+				E4BF2A9A2A82E0D900630EC1 /* DynamicHeightCollectionView.swift */,
 				E4A85AFC2A7FD361001A0E74 /* CollectionViewCells */,
 			);
-			path = Cells;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E4EB2E2A2A7CECB8008D1665 /* Services */ = {
@@ -241,6 +247,7 @@
 			files = (
 				E405BC452A7D5FCF00C314F3 /* MainViewModel.swift in Sources */,
 				E42AF3692A8130DA000B44E3 /* MainViewController.swift in Sources */,
+				E4BF2A9B2A82E0D900630EC1 /* DynamicHeightCollectionView.swift in Sources */,
 				E405BC492A7D606B00C314F3 /* SkillCellViewModel.swift in Sources */,
 				E405BC472A7D601F00C314F3 /* SkillCell.swift in Sources */,
 				E42AF3672A81140D000B44E3 /* SkillsSectionCellViewModel.swift in Sources */,
@@ -248,6 +255,7 @@
 				E4A85AFA2A7FD335001A0E74 /* AboutSectionCell.swift in Sources */,
 				E4A85AF82A7FD30A001A0E74 /* SkillsSectionCell.swift in Sources */,
 				E405BC4B2A7D632A00C314F3 /* AddButtonCell.swift in Sources */,
+				E4A0990C2A8380A9009C05A3 /* ProfileSectionCellViewModel.swift in Sources */,
 				E4EB2E182A7CEBEB008D1665 /* MiniCV.xcdatamodeld in Sources */,
 				E4EB2E2C2A7CF512008D1665 /* StorageManager.swift in Sources */,
 				E4EB2E0E2A7CEBEB008D1665 /* AppDelegate.swift in Sources */,

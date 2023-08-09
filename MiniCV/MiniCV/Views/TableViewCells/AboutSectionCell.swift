@@ -9,6 +9,7 @@ import UIKit
 
 final class AboutSectionCell: UITableViewCell {
     
+    // MARK: - Private Properties
     private lazy var aboutSectionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,6 +18,7 @@ final class AboutSectionCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Public Properties
     lazy var aboutLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +27,7 @@ final class AboutSectionCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -35,6 +38,7 @@ final class AboutSectionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private Methods
     private func setupUI() {
         addSubview(aboutSectionLabel)
         addSubview(aboutLabel)
@@ -42,13 +46,31 @@ final class AboutSectionCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            aboutSectionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
-            aboutSectionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            aboutSectionLabel.topAnchor.constraint(
+                equalTo: topAnchor,
+                constant: 24
+            ),
+            aboutSectionLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 16
+            ),
             
-            aboutLabel.topAnchor.constraint(equalTo: aboutSectionLabel.bottomAnchor, constant: 8),
-            aboutLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
-            aboutLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            aboutLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            aboutLabel.topAnchor.constraint(
+                equalTo: aboutSectionLabel.bottomAnchor,
+                constant: 8
+            ),
+            aboutLabel.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -24
+            ),
+            aboutLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 16
+            ),
+            aboutLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -16
+            )
         ])
     }
 }

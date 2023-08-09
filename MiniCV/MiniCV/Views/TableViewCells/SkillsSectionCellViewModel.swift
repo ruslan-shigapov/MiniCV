@@ -20,12 +20,12 @@ protocol SkillsSectionCellViewModelProtocol: SkillCellDelegate {
 
 class SkillsSectionCellViewModel: SkillsSectionCellViewModelProtocol {
     
+    private var skills: [Skill] = []
+    
     var deleteButtonWasPressed: (() -> Void)?
     
     var isEditingMode = false
 
-    private var skills: [Skill] = []
-    
     func fetchData(completion: () -> Void) {
         StorageManager.shared.fetchSkills { [unowned self] result in
             switch result {

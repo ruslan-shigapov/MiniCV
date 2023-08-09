@@ -15,11 +15,11 @@ protocol SkillCellViewModelProtocol {
 
 final class SkillCellViewModel: SkillCellViewModelProtocol {
    
+    private let skill: Skill
+    
     var name: String {
         skill.name ?? "Unknown name"
     }
-    
-    private let skill: Skill
     
     required init(skill: Skill) {
         self.skill = skill

@@ -39,10 +39,22 @@ final class AddButtonCell: UICollectionViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            addButtonLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            addButtonLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
-            addButtonLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            addButtonLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
+            addButtonLabel.topAnchor.constraint(
+                equalTo: topAnchor,
+                constant: 12
+            ),
+            addButtonLabel.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -12
+            ),
+            addButtonLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 24
+            ),
+            addButtonLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -24
+            )
         ])
     }
 }
