@@ -60,7 +60,7 @@ final class AboutSectionCell: UITableViewCell {
                 constant: 8
             ),
             aboutLabel.bottomAnchor.constraint(
-                equalTo: bottomAnchor,
+                equalTo: safeAreaLayoutGuide.bottomAnchor,
                 constant: -24
             ),
             aboutLabel.leadingAnchor.constraint(

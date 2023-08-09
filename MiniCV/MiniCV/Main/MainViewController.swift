@@ -35,7 +35,6 @@ final class MainViewController: UITableViewController {
     private func setupUI() {
         title = profile.title
         view.backgroundColor = .secondarySystemBackground
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.register(

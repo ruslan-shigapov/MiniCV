@@ -11,7 +11,7 @@ final class SkillsSectionCell: UITableViewCell {
     
     // MARK: - Private Properties
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(
+        let collectionView = DynamicHeightCollectionView(
             frame: .zero,
             collectionViewLayout: makeLayout()
         )
@@ -25,6 +25,7 @@ final class SkillsSectionCell: UITableViewCell {
         didSet {
             viewModel.fetchData {
                 collectionView.reloadData()
+                layoutIfNeeded()
             }
             viewModel.deleteButtonWasPressed = { [weak self] in
                 self?.viewModel.fetchData {
@@ -50,6 +51,7 @@ final class SkillsSectionCell: UITableViewCell {
     
     // MARK: - Private Methods
     private func setupUI() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -65,10 +67,18 @@ final class SkillsSectionCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            
+            collectionView.topAnchor.constraint(
+                equalTo: contentView.topAnchor
+            ),
+            collectionView.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor
+            ),
             collectionView.leadingAnchor.constraint(
-                equalTo: leadingAnchor,
+                equalTo: contentView.leadingAnchor,
                 constant: 16
             ),
             collectionView.trailingAnchor.constraint(
